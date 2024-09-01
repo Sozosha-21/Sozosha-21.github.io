@@ -17,6 +17,9 @@
             max-width: 600px;
             margin: 0 auto;
         }
+        h1 {
+            color: white;
+        }
         .folder {
             background-color: #333;
             padding: 15px;
@@ -42,15 +45,36 @@
             background-color: #999;
             border-radius: 3px;
         }
+        .controls {
+            margin-bottom: 20px;
+        }
+        .controls label {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>McLovin's Firmware Forge</h1> <!-- Título visible en la página -->
+        <div class="controls">
+            <label for="font-size">Font Size:</label>
+            <select id="font-size">
+                <option value="16px">Small</option>
+                <option value="18px" selected>Medium</option>
+                <option value="20px">Large</option>
+                <option value="24px">Extra Large</option>
+            </select>
+        </div>
+        <h1>McLovin's Firmware Forge</h1>
         <div class="folder">
             <div class="folder-icon"></div>
             <a href="risingos.html">RisingOS</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('font-size').addEventListener('change', function() {
+            document.body.style.fontSize = this.value;
+        });
+    </script>
 </body>
 </html>

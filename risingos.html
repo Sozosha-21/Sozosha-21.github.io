@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RisingOS 5.0</title>
+    <title>RisingOS 5.0 - McLovin's Firmware Forge</title>
     <style>
         body {
             background-color: black;
@@ -16,6 +16,9 @@
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
+        }
+        h1 {
+            color: white;
         }
         .folder {
             background-color: #333;
@@ -42,17 +45,46 @@
             background-color: #999;
             border-radius: 3px;
         }
+        .controls {
+            margin-bottom: 20px;
+        }
+        .controls label {
+            margin-right: 10px;
+        }
+        .download-link {
+            color: lightblue;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="controls">
+            <label for="font-size">Font Size:</label>
+            <select id="font-size">
+                <option value="16px">Small</option>
+                <option value="18px" selected>Medium</option>
+                <option value="20px">Large</option>
+                <option value="24px">Extra Large</option>
+            </select>
+        </div>
+        <h1>RisingOS 5.0</h1>
         <div class="folder">
             <div class="folder-icon"></div>
             <a href="#">RisingOS-5.0-FINAL_BETA-20240816-CORE-COMMUNITY-fogos</a>
-            <div class="file-count">
-                <a href="https://github.com/Builds-Sozosha/RisingOS/releases/download/5.0/RisingOS-5.0-FINAL_BETA-20240816-CORE-COMMUNITY-fogos-ota.zip" style="color: white; text-decoration: underline;">Download</a>
+        </div>
+        <div class="subfolder">
+            <div class="folder">
+                <div class="folder-icon"></div>
+                <a href="https://github.com/Builds-Sozosha/RisingOS/releases/download/5.0/RisingOS-5.0-FINAL_BETA-20240816-CORE-COMMUNITY-fogos-ota.zip" class="download-link">Download</a>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('font-size').addEventListener('change', function() {
+            document.body.style.fontSize = this.value;
+        });
+    </script>
 </body>
 </html>
