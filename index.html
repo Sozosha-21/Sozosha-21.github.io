@@ -46,24 +46,45 @@
             border-radius: 3px;
         }
         .controls {
-            margin-bottom: 20px;
+            display: none;
+            background-color: #222;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
         }
         .controls label {
             margin-right: 10px;
         }
+        .menu-button {
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 5px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .menu-button:hover {
+            color: lightgray;
+        }
     </style>
 </head>
 <body>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <div class="controls" id="controls">
+        <label for="font-size">Font Size:</label>
+        <select id="font-size">
+            <option value="16px">Small</option>
+            <option value="18px">Medium</option>
+            <option value="20px">Large</option>
+            <option value="24px">Extra Large</option>
+        </select>
+    </div>
+
     <div class="container">
-        <div class="controls">
-            <label for="font-size">Font Size:</label>
-            <select id="font-size">
-                <option value="16px">Small</option>
-                <option value="18px" selected>Medium</option>
-                <option value="20px">Large</option>
-                <option value="24px">Extra Large</option>
-            </select>
-        </div>
         <h1>McLovin's Firmware Forge</h1>
         <div class="folder">
             <div class="folder-icon"></div>
@@ -72,9 +93,27 @@
     </div>
 
     <script>
-        document.getElementById('font-size').addEventListener('change', function() {
-            document.body.style.fontSize = this.value;
+        // Load the font size from localStorage and apply it
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedFontSize = localStorage.getItem('fontSize') || '18px';
+            document.body.style.fontSize = savedFontSize;
+            document.getElementById('font-size').value = savedFontSize;
         });
+
+        document.getElementById('font-size').addEventListener('change', function() {
+            const selectedFontSize = this.value;
+            document.body.style.fontSize = selectedFontSize;
+            localStorage.setItem('fontSize', selectedFontSize); // Save the selected font size to localStorage
+        });
+
+        function toggleMenu() {
+            const menu = document.getElementById('controls');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
