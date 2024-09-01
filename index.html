@@ -9,17 +9,24 @@
             background-color: black;
             color: white;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
         }
         .folder {
             background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
             transition: background-color 0.3s;
         }
         .folder:hover {
@@ -28,13 +35,29 @@
         .folder a {
             color: white;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 18px;
+            margin-left: 10px;
+            flex-grow: 1;
+        }
+        .folder-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #999;
+            border-radius: 3px;
+        }
+        .size {
+            color: #bbb;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <div class="folder">
-        <a href="roms/">ROM's</a>
+    <div class="container">
+        <div class="folder">
+            <div class="folder-icon"></div>
+            <a href="roms/">ROM's</a>
+            <div class="size">2.0 GB</div>
+        </div>
     </div>
 </body>
 </html>
